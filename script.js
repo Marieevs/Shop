@@ -64,57 +64,55 @@ const data = [
     },
 ]
 
-/*
-Высчитаь сумму, потраченную на все покупки
- */
 const length = data.length;
-console.log('Длина массива = ', length);
-let summaAll = 0;
-let summaOne = 0;
-for (let i = 0; i < data.length; i++) {
-    console.log('Цена одного продукта = ', data[i].price);
-    summaOne = (data[i].price * data[i].quantity);
-    summaAll = (summaAll + data[i].price * data[i].quantity);
-    console.log('Сумма, потраченная на продукт c учетом его количества = ', summaOne);
-}
-console.log('Итого: сумма, потраченная на все покупки = ', summaAll);
+console.log(`Длина массива = ${length}`);
+let sumAll = 0;
+let sumOne = 0;
+let sumMilkFood = 0;
+let sumFruit = 0;
+let sumVegetable = 0;
+let sumClothes = 0;
+let sumBakery = 0;
+for (let i = 0; i < length; i++) {
+    let priceProduct = data[i].price;
+    let quantityProduct = data[i].quantity;
+    let typeProduct = data[i].type;
+    // Высчитать сумму, потраченную на все покупки //
+    console.log(`Цена одного продукта = ${priceProduct}`);
+    sumOne = (priceProduct * quantityProduct);
+    sumAll = (sumAll + sumOne);
+    console.log(`Сумма, потраченная на продукт c учетом его количества = ${sumOne}`);
 
-/*
-Высчитать сумму, потраченную на конкретный тип товаров
-(типы товаров указаны в объекте PRODUCT_TYPE и в самих объект в ключе type)
- */
-
-let summaMilkFood = 0;
-let summaFruit = 0;
-let summaVegetable = 0;
-let summaClothes = 0;
-let summaBakery = 0;
-
-for (let i = 0; i < data.length; i++)
-    switch (data[i].type) {
+    /*
+    Высчитать сумму, потраченную на конкретный тип товаров
+    (типы товаров указаны в объекте PRODUCT_TYPE и в самих объект в ключе type)
+    */
+    switch (typeProduct) {
         case PRODUCT_TYPE.MILK_FOOD :
-            summaMilkFood = (summaMilkFood + data[i].price * data[i].quantity);
+            sumMilkFood = (sumMilkFood + sumOne);
             break;
 
         case PRODUCT_TYPE.FRUIT :
-            summaFruit = (summaFruit + data[i].price * data[i].quantity);
+            sumFruit = (sumFruit + sumOne);
             break;
 
         case PRODUCT_TYPE.VEGETABLE :
-            summaVegetable = (summaVegetable + data[i].price * data[i].quantity);
+            sumVegetable = (sumVegetable + sumOne);
             break;
 
         case PRODUCT_TYPE.CLOTHES :
-            summaClothes = (summaClothes + data[i].price * data[i].quantity);
+            sumClothes = (sumClothes + sumOne);
             break;
 
         case PRODUCT_TYPE.BAKERY :
-            summaBakery = (summaBakery + data[i].price * data[i].quantity);
+            sumBakery = (sumBakery + sumOne);
             break;
     }
 
-console.log('Сумма молочных продуктов = ', summaMilkFood);
-console.log('Сумма фруктов = ', summaFruit);
-console.log('Сумма овощей = ', summaVegetable);
-console.log('Сумма одежды = ', summaClothes);
-console.log('Сумма выпечки = ', summaBakery);
+}
+console.log(`Итого: сумма, потраченная на все покупки = ${sumAll}`);
+console.log(`Сумма молочных продуктов = ${sumMilkFood}`);
+console.log(`Сумма фруктов = ${sumFruit}`);
+console.log(`Сумма овощей = ${sumVegetable}`);
+console.log(`Сумма одежды = ${sumClothes}`);
+console.log(`Сумма выпечки = ${sumBakery}`);
