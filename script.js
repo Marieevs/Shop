@@ -7,6 +7,7 @@ const PRODUCT_TYPE = {
     BAKERY: 5,
 }
 
+const {MILK_FOOD, FRUIT, VEGETABLE, CLOTHES, BAKERY} = PRODUCT_TYPE; //Деструктуризация свойств свойств объекта//
 const data = [
     {
         name: 'Milk',
@@ -88,23 +89,23 @@ for (let i = 0; i < length; i++) {
     (типы товаров указаны в объекте PRODUCT_TYPE и в самих объект в ключе type)
     */
     switch (typeProduct) {
-        case PRODUCT_TYPE.MILK_FOOD :
+        case MILK_FOOD :
             sumMilkFood = (sumMilkFood + sumOne);
             break;
 
-        case PRODUCT_TYPE.FRUIT :
+        case FRUIT :
             sumFruit = (sumFruit + sumOne);
             break;
 
-        case PRODUCT_TYPE.VEGETABLE :
+        case VEGETABLE :
             sumVegetable = (sumVegetable + sumOne);
             break;
 
-        case PRODUCT_TYPE.CLOTHES :
+        case CLOTHES :
             sumClothes = (sumClothes + sumOne);
             break;
 
-        case PRODUCT_TYPE.BAKERY :
+        case BAKERY :
             sumBakery = (sumBakery + sumOne);
             break;
     }
