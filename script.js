@@ -66,7 +66,7 @@ const data = [
 ]
 
 const length = data.length;
-console.log(`Длина массива = ${length}`);
+console.log(`Array length = ${length}`);
 let sumAll = 0;
 let sumOne = 0;
 let sumMilkFood = 0;
@@ -74,21 +74,21 @@ let sumFruit = 0;
 let sumVegetable = 0;
 let sumClothes = 0;
 let sumBakery = 0;
+
 for (let i = 0; i < length; i++) {
-    let priceProduct = data[i].price;
-    let quantityProduct = data[i].quantity;
-    let typeProduct = data[i].type;
+    let {name, price, quantity, type} = data [i];
+
     // Высчитать сумму, потраченную на все покупки //
-    console.log(`Цена одного продукта = ${priceProduct}`);
-    sumOne = (priceProduct * quantityProduct);
+    console.log(`Price of one unit ${name} = ${price}`);
+    sumOne = price * quantity;
     sumAll = (sumAll + sumOne);
-    console.log(`Сумма, потраченная на продукт c учетом его количества = ${sumOne}`);
+    console.log(`The amount spent on the product, taking into account its quantity ${name} = ${sumOne}`);
 
     /*
     Высчитать сумму, потраченную на конкретный тип товаров
     (типы товаров указаны в объекте PRODUCT_TYPE и в самих объект в ключе type)
     */
-    switch (typeProduct) {
+    switch (type) {
         case MILK_FOOD :
             sumMilkFood = (sumMilkFood + sumOne);
             break;
@@ -111,9 +111,9 @@ for (let i = 0; i < length; i++) {
     }
 
 }
-console.log(`Итого: сумма, потраченная на все покупки = ${sumAll}`);
-console.log(`Сумма молочных продуктов = ${sumMilkFood}`);
-console.log(`Сумма фруктов = ${sumFruit}`);
-console.log(`Сумма овощей = ${sumVegetable}`);
-console.log(`Сумма одежды = ${sumClothes}`);
-console.log(`Сумма выпечки = ${sumBakery}`);
+console.log(`Total: amount spent on all purchases = ${sumAll}`);
+console.log(`Sum of milk food = ${sumMilkFood}`);
+console.log(`Sum of fruit = ${sumFruit}`);
+console.log(`Sum of vegetable = ${sumVegetable}`);
+console.log(`Sum of clothes = ${sumClothes}`);
+console.log(`Sum of bakery = ${sumBakery}`);
